@@ -2,7 +2,7 @@
 
 
 # Get the information for this package
-echo "What is the namespace of this package (LasseHaslev\\ExampleName)"
+echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
 read namespace;
 
 # Change the namespace
