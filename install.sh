@@ -23,3 +23,13 @@ echo "What will be the composer package name? (lassehaslev/example-name)"
 read -r composername
 
 sed -i '' -e "s/\%composername\%/$composername/g" './composer.json'
+
+echo "What your name?"
+read -r name
+echo "Whats your email?"
+read -r email
+
+sed -i '' -e "s/\%name\%/$name/g" './composer.json'
+sed -i '' -e "s/\%name\%/$name/g" './src/Providers/ServiceProvider.php'
+sed -i '' -e "s/\%name\%/$name/g" './tests/TestCase.php'
+sed -i '' -e "s/\%email\%/$email/g" './composer.json'

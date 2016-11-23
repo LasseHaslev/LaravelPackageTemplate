@@ -3,8 +3,8 @@
     "type": "laravel-plugin",
     "authors": [
         {
-            "name": "Lasse S. Haslev",
-            "email": "lasse@haslev.no"
+            "name": "%name%",
+            "email": "%email%"
         }
     ],
     "require": {},

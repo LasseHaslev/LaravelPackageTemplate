@@ -2,7 +2,7 @@
 
 /**
  * Class TestCase
- * @author Lasse S. Haslev
+ * @author %name%
  */
 class TestCase extends Orchestra\Testbench\TestCase
 {

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
+/**
+ * Class ServiceProvider
+ * @author %name%
+ */
 class ServiceProvider extends BaseServiceProvider
 {
     /**
