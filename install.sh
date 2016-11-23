@@ -13,7 +13,7 @@ sed -i '' -e "s/\%namespace\%/$namespace/g" './composer.json'
 
 echo "I am sorry, but you have to add another backward slash in ./composer.json on line 17."
 
-# echo "What is the name of the config file ( packagename )"
+echo "What is the name of the config file ( packagename )"
 read -r packagename;
 
 # rename the config file
