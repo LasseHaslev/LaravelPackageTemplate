@@ -5,7 +5,7 @@
 # echo "What is the namespace of this package (LasseHaslev\\ExampleName)"
 # read namespace;
 
-echo "What is the small name of this package ( packagename )"
+echo "What is the name of the config file ( packagename )"
 read packagename;
 
 # rename the config file
