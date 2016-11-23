@@ -18,3 +18,8 @@ read -r packagename;
 # rename the config file
 mv ./config/my_package.php ./config/$packagename.php # works
 sed -i '' -e "s/\%packagename\%/$packagename/g" './src/Providers/ServiceProvider.php'
+
+echo "What will be the composer package name? (lassehaslev/example-name)"
+read -r composername
+
+sed -i '' -e "s/\%composername\%/$composername/g" './composer.json'

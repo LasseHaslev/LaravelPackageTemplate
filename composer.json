@@ -1,5 +1,5 @@
 {
-    "name": "lassehaslev/laravel-fieldable",
+    "name": "%composername%",
     "type": "laravel-plugin",
     "authors": [
         {
