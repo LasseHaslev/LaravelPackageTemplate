@@ -6,6 +6,8 @@
 # Make this package yours by running
 sh install.sh
 
+# If you did not wanted to let the script install dependencies for you
+
 # Install dependencies
 composer install
 
