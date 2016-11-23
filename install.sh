@@ -2,6 +2,19 @@
 
 rm -rf .git/
 
+confirm () {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case $response in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
 # Get the information for this package
 echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
 read -r namespace;
@@ -35,3 +48,8 @@ sed -i '' -e "s/\%name\%/$name/g" './composer.json'
 sed -i '' -e "s/\%name\%/$name/g" './src/Providers/ServiceProvider.php'
 sed -i '' -e "s/\%name\%/$name/g" './tests/TestCase.php'
 sed -i '' -e "s/\%email\%/$email/g" './composer.json'
+
+echo "Done setting up files"
+
+confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
+echo 'All done! Happy coding!'
