@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf .git/
+
 # Get the information for this package
 echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
 read -r namespace;

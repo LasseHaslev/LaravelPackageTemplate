@@ -3,6 +3,9 @@
 ## Getting started
 #### Install dependencies
 ``` bash
+# Make this package yours by running
+sh install.sh
+
 # Install dependencies
 composer install
 
