@@ -1,6 +1,17 @@
 # lassehaslev/LaravelPackageTemplate
 
-## Usage
+## Getting started
+#### Install dependencies
+``` bash
+# Install dependencies
+composer install
+
+# Install dependencies for automatic tests
+yarn
+```
+
+
+## Development
 #### Service provider
 Your package service provider can be found in ```src/Providers/ServiceProvider.php```.
 
@@ -47,16 +58,14 @@ class MyTest extends TestCase {
 }
 ```
 
+## Usage after development
+Run ```composer require %composerpackage%```
 
-## Development
-#### Install dependencies
-``` bash
-# Install dependencies
-composer install
-
-# Install dependencies for automatic tests
-yarn
+Create your package and add the following line to ```providers``` in ```config/app.php``` 
 ```
+%namespace%\Providers\ServiceProvider::class,
+```
+
 
 #### Runing tests
 ``` bash
