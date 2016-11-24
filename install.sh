@@ -52,4 +52,7 @@ sed -i '' -e "s/\%email\%/$email/g" './composer.json'
 echo "Done setting up files"
 
 confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
+
+rm -rf install.sh
+
 echo 'All done! Happy coding!'
