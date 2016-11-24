@@ -4,6 +4,7 @@
 #### Install dependencies
 ``` bash
 # Make this package yours by running
+# Make shure you have to \slash every special character ("\" and "/")
 sh install.sh
 
 # If you did not wanted to let the script install dependencies for you
