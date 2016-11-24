@@ -2,3 +2,4 @@ vendor/
 .DS_Store
 tags
 node_modules/
+composer.lock
