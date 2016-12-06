@@ -38,6 +38,7 @@ echo "What will be the composer package name? (lassehaslev/example-name)"
 read -r composername
 
 sed -i '' -e "s/\%composername\%/$composername/g" './composer.json'
+sed -i '' -e "s/\%composername\%/$composername/g" './README.md'
 
 echo "What your name?"
 read -r name

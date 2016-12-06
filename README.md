@@ -65,7 +65,7 @@ class MyTest extends TestCase {
 ```
 
 ## Usage after development
-Run ```composer require %composerpackage%```
+Run ```composer require %composername%```
 
 Create your package and add the following line to ```providers``` in ```config/app.php``` 
 ```
