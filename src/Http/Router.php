@@ -31,6 +31,10 @@ class Router extends PackageRouter
             'method'=>'get',
             'as'=>'%packagename%.index',
             // 'uses'=>'\\' .Controller::class . '@index',
+            'uses'=>function() {
+                return 'Hello mr %packagename%';
+                // return view( '%packagename%.index' );
+            }
         ] );
     }
 
