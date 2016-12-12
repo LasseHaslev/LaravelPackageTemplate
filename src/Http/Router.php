@@ -11,6 +11,16 @@ use LasseHaslev\LaravelPackageRouter\PackageRouter;
 class Router extends PackageRouter
 {
     /**
+     * Overwrite create function and set the namespace for this global object
+     *
+     * @return static
+     */
+    public static function create(string $referenceId = NULL)
+    {
+        return parent::create( '%packagename%' );
+    }
+
+    /**
      * @param mixed
      */
     public function __construct()
