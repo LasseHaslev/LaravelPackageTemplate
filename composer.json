@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "lassehaslev/laravel-package-router": "^0.1.0"
+        "lassehaslev/laravel-package-router": "0.x"
     },
     "require-dev": {
         "orchestra/testbench": "3.3.x",
