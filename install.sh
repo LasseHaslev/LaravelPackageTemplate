@@ -1,0 +1,72 @@
+#!/bin/sh
+
+rm -rf .git/
+
+FILES=('./src/Providers/ServiceProvider.php' './README.md' './tests/TestCase.php' './composer.json')
+
+confirm () {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case $response in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+function replaceVariableInFile {
+    # $1 is valiablename in file
+    # $2 is what to replace in
+    # $3 is What file to replace
+    sed -i '' -e "s/$1/$2/g" $3
+}
+function replaceVarableInFiles {
+    # $1 is valiablename in file
+    # $2 is what to replace in
+    nameLength=${#FILES[@]}
+    for (( i = 0; i < $nameLength; i++ )); do
+        replaceVariableInFile $1 $2 ${FILES[$i]}
+    done
+}
+
+# Get the information for this package
+echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
+read -r namespace;
+
+# Change the namespace
+replaceVarableInFiles '\%namespace\%' $namespace
+
+# Add double backslashes to composer file
+sed -i '' -e 's,\(\\\),\1\1,' './composer.json'
+
+
+
+echo "What is the name of the config file ( packagename )"
+read -r packagename;
+
+# rename the config file
+mv ./config/my_package.php ./config/$packagename.php # works
+replaceVarableInFiles '\%packagename\%' $packagename
+
+echo "What will be the composer package name? (lassehaslev/example-name)"
+read -r composername
+replaceVarableInFiles '\%composername\%' $composername
+
+echo "What your name?"
+read -r name
+echo "Whats your email?"
+read -r email
+
+replaceVarableInFiles '\%name\%' $name
+replaceVarableInFiles '\%email\%' $email
+
+echo "Done setting up files"
+
+confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
+
+rm -rf install.sh
+
+echo 'All done! Happy coding!'
