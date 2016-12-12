@@ -1,7 +1,5 @@
 #!/bin/sh
 
-rm -rf .git/
-
 FILES=('./src/Providers/ServiceProvider.php' './README.md' './tests/TestCase.php' './composer.json')
 
 confirm () {
@@ -75,11 +73,12 @@ function setupAuthorInfo {
 }
 
 function finishUp {
+    rm -rf .git/
+    rm -rf install.sh
+
     echo "Done setting up files"
 
     confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
-
-    rm -rf install.sh
 
     echo 'All done! Happy coding!'
 }
