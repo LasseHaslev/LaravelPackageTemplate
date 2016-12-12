@@ -32,41 +32,61 @@ function replaceVarableInFiles {
     done
 }
 
-# Get the information for this package
-echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
-read -r namespace;
+function addDoubleBackslashesInComposer {
+    # Add double backslashes to composer file
+    sed -i '' -e 's,\(\\\),\1\1,' './composer.json'
+}
 
-# Change the namespace
-replaceVarableInFiles '\%namespace\%' $namespace
+# --- Function steps ---
+function setupNamespace {
+    # Get the information for this package
+    echo "What is the namespace of this package (LasseHaslev\\\\ExampleName)"
+    read -r namespace;
 
-# Add double backslashes to composer file
-sed -i '' -e 's,\(\\\),\1\1,' './composer.json'
+    # Change the namespace
+    replaceVarableInFiles '\%namespace\%' $namespace
+}
 
+function setupConfigFile {
+    echo "What is the name of the config file ( packagename )"
+    read -r packagename;
 
+    # rename the config file
+    mv ./config/my_package.php ./config/$packagename.php # works
+    replaceVarableInFiles '\%packagename\%' $packagename
+}
 
-echo "What is the name of the config file ( packagename )"
-read -r packagename;
+function setupComposerInfo {
+    echo "What will be the composer package name? (lassehaslev/example-name)"
+    read -r composername
+    replaceVarableInFiles '\%composername\%' $composername
 
-# rename the config file
-mv ./config/my_package.php ./config/$packagename.php # works
-replaceVarableInFiles '\%packagename\%' $packagename
+    addDoubleBackslashesInComposer
+}
 
-echo "What will be the composer package name? (lassehaslev/example-name)"
-read -r composername
-replaceVarableInFiles '\%composername\%' $composername
+function setupAuthorInfo {
+    echo "What your name?"
+    read -r name
+    echo "Whats your email?"
+    read -r email
 
-echo "What your name?"
-read -r name
-echo "Whats your email?"
-read -r email
+    replaceVarableInFiles '\%name\%' $name
+    replaceVarableInFiles '\%email\%' $email
+}
 
-replaceVarableInFiles '\%name\%' $name
-replaceVarableInFiles '\%email\%' $email
+function finishUp {
+    echo "Done setting up files"
 
-echo "Done setting up files"
+    confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
 
-confirm "You want me to install composer and npm modules [y/N]" && composer install && yarn && echo 'Dependencies installed'
+    rm -rf install.sh
 
-rm -rf install.sh
+    echo 'All done! Happy coding!'
+}
 
-echo 'All done! Happy coding!'
+# Steps
+setupAuthorInfo
+setupNamespace
+setupConfigFile
+setupComposerInfo
+finishUp
