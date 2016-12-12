@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILES=('./src/Providers/ServiceProvider.php' './README.md' './tests/TestCase.php' './composer.json')
+FILES=('./src/Providers/ServiceProvider.php' './src/Http/Router.php' './README.md' './tests/TestCase.php' './composer.json')
 
 confirm () {
     # call with a prompt string or use a default

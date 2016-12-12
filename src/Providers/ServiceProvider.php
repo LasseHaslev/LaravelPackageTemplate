@@ -1,6 +1,7 @@
 <?php namespace %namespace%\Providers;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use %namespace%\Http\Router;
 
 /**
  * Class ServiceProvider
@@ -16,6 +17,7 @@ class ServiceProvider extends BaseServiceProvider
     public function register()
     {
         $this->mergeConfigFrom( __DIR__.'/../../config/%packagename%.php', '%packagename%');
+        Router::create();
     }
 
     /**
@@ -28,6 +30,8 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__.'/../../config/%packagename%.php'=>'%packagename%',
         ]);
+        $this->loadRoutesFrom( __DIR__.'/../../routes/web.php' );
         $this->loadMigrationsFrom( __DIR__.'/../../database/migrations' );
+        $this->loadViewsFrom( __DIR__.'/../../resources/views', '%packagename%' );
     }
 }
