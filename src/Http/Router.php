@@ -16,24 +16,14 @@ class Router extends PackageRouter
      */
     public function __construct()
     {
-        $this->buildRoutes();
-    }
-
-    /**
-     * Build routes for this application
-     *
-     * @return void
-     */
-    public function buildRoutes()
-    {
-        $router->add( '%packagename%.index', [
+        $this->add( '%packagename%.index', [
             'uri'=>'%packagename%',
             'method'=>'get',
             'as'=>'%packagename%.index',
             // 'uses'=>'\\' .Controller::class . '@index',
             'uses'=>function() {
                 return 'Hello mr %packagename%';
-                // return view( '%packagename%.index' );
+                // return view( '%packagename%::index' );
             }
         ] );
     }
