@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILES=('./src/Providers/ServiceProvider.php' './src/Http/Router.php' './README.md' './tests/TestCase.php' './composer.json')
+FILES=('./database/migrations/my_package.php' './src/Providers/ServiceProvider.php' './src/Http/Router.php' './README.md' './tests/TestCase.php' './composer.json')
 
 confirm () {
     # call with a prompt string or use a default
@@ -51,7 +51,14 @@ function setupConfigFile {
 
     # rename the config file
     mv ./config/my_package.php ./config/$packagename.php # works
+
+    DATESTRING=`date +%Y_%m_%d`;
+
     replaceVarableInFiles '\%packagename\%' $packagename
+
+    # rename the migration file
+    mv ./database/migrations/my_package.php ./config/$DATESTRING_$packagename_table.php # works
+
 }
 
 function setupComposerInfo {
