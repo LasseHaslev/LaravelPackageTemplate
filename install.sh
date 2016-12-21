@@ -80,8 +80,8 @@ function setupAuthorInfo {
 }
 
 function finishUp {
-    # rm -rf .git/
-    # rm -rf install.sh
+    rm -rf .git/
+    rm -rf install.sh
 
     echo "Done setting up files"
 
