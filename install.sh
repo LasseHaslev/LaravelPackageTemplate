@@ -49,15 +49,15 @@ function setupConfigFile {
     echo "What is the name of the config file ( packagename )"
     read -r packagename;
 
+    replaceVarableInFiles '\%packagename\%' $packagename
+
     # rename the config file
     mv ./config/my_package.php ./config/$packagename.php # works
 
-    DATESTRING=`date +%Y_%m_%d`;
-
-    replaceVarableInFiles '\%packagename\%' $packagename
+    migrationname=`date +%Y_%m_%d_create_$packagename\_table`;
 
     # rename the migration file
-    mv ./database/migrations/my_package.php ./config/$DATESTRING_$packagename_table.php # works
+    mv ./database/migrations/my_package.php ./database/migrations/$migrationname.php # works
 
 }
 
@@ -80,8 +80,8 @@ function setupAuthorInfo {
 }
 
 function finishUp {
-    rm -rf .git/
-    rm -rf install.sh
+    # rm -rf .git/
+    # rm -rf install.sh
 
     echo "Done setting up files"
 
