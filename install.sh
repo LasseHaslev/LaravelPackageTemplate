@@ -93,6 +93,6 @@ function finishUp {
 # Steps
 setupAuthorInfo
 setupNamespace
-setupConfigFile
 setupComposerInfo
+setupConfigFile
 finishUp
