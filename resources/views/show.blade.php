@@ -1,4 +1,4 @@
-@extends( config( 'retails.views.backend.layout' ) )
+@extends( config( '%packagename%.views.backend.layout' ) )
 
 @section( 'content' )
     <h1 class="title">{{ $retail->name }}</h1>
@@ -8,6 +8,6 @@
 </div>
 @endif
 
-@include( 'retails::stores.index' )
+@include( '%packagename%::stores.index' )
 
 @endsection
