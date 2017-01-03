@@ -27,10 +27,11 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../../config/%packagename%.php'=>'%packagename%',
-        ]);
+        $this->publishes([__DIR__.'/../../config/%packagename%.php'=>config_path('%packagename%.php')], 'config');
         $this->loadMigrationsFrom( __DIR__.'/../../database/migrations' );
         $this->loadViewsFrom( __DIR__.'/../../resources/views', '%packagename%' );
+
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', '%packagename%');
+        $this->publishes([ __DIR__.'/../../resources/lang', resource_path( 'lang/vendor/%packagename%' ) ], 'lang');
     }
 }
