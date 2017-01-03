@@ -54,7 +54,7 @@ function setupConfigFile {
     # rename the config file
     mv ./config/my_package.php ./config/$packagename.php # works
 
-    migrationname=`date +%Y_%m_%d_create_$packagename\_table`;
+    migrationname=`date +%Y_%m_%d_123456_create_$packagename\_table`;
 
     # rename the migration file
     mv ./database/migrations/my_package.php ./database/migrations/$migrationname.php # works
