@@ -1,8 +1,8 @@
 <?php
 
 return [
-    '%namespace%\Model'=>[
-        'name'=>'%packagename%|%packagename%s',
+    '%instance%'=>[
+        'name'=>'%instance%|%instance_plural%',
         'properties'=>[
             'name'=>'Name',
             'description'=>'Description',
