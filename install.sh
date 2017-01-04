@@ -122,7 +122,7 @@ function finishUp {
 
 function changeFilenames {
     mv ./src/Model.php ./src/$model.php # works
-    mv ./src/Http/Controllers/Controller.php ./src/./src/Http/Controllers/$model_pluralController.php # works
+    mv ./src/Http/Controllers/Controller.php ./src/Http/Controllers/$model_pluralController.php # works
 }
 
 # Steps
