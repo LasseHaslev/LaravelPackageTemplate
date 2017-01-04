@@ -121,8 +121,9 @@ function finishUp {
 }
 
 function changeFilenames {
+    newControllerPath=$(printf "./src/Http/Controllers/%sController.php" "$model_plural")
     mv ./src/Model.php ./src/$model.php # works
-    mv ./src/Http/Controllers/Controller.php ./src/Http/Controllers/$model_pluralController.php # works
+    mv ./src/Http/Controllers/Controller.php newControllerPath.php
 }
 
 # Steps
