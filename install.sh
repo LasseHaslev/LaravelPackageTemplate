@@ -61,6 +61,32 @@ function setupConfigFile {
 
 }
 
+function setupModel {
+    echo "What is the name of the first model ( Account )"
+    read -r model;
+
+    replaceVarableInFiles '\%model\%' $model
+
+    echo "What is the \"plural\" name of the config file ( Accounts )"
+    read -r model_plural;
+
+    replaceVarableInFiles '\%model_plural\%' $model_plural
+
+}
+
+function setupModelInstance {
+    echo "What is the name of the first model instance ( account )"
+    read -r instance;
+
+    replaceVarableInFiles '\%instance\%' $instance
+
+    echo "What is the \"plural\" name of the first model instance ( accounts )"
+    read -r instance_plural;
+
+    replaceVarableInFiles '\%instance_plural\%' $instance_plural
+
+}
+
 function setupComposerInfo {
     echo "What will be the composer package name? (lassehaslev/example-name)"
     read -r composername
@@ -93,6 +119,8 @@ function finishUp {
 # Steps
 setupAuthorInfo
 setupNamespace
+setupModel
+setupModelInstance
 setupComposerInfo
 setupConfigFile
 finishUp
