@@ -54,11 +54,6 @@ function setupConfigFile {
     # rename the config file
     mv ./config/my_package.php ./config/$packagename.php # works
 
-    migrationname=`date +%Y_%m_%d_123456_create_$packagename\_table`;
-
-    # rename the migration file
-    mv ./database/migrations/my_package.php ./database/migrations/$migrationname.php # works
-
 }
 
 function setupModel {
@@ -84,6 +79,15 @@ function setupModelInstance {
     read -r instance_plural;
 
     replaceVarableInFiles '\%instance_plural\%' $instance_plural
+
+}
+
+function setupMigration {
+
+    migrationname=`date +%Y_%m_%d_123456_create_$instance_plural\_table`;
+
+    # rename the migration file
+    mv ./database/migrations/my_package.php ./database/migrations/$migrationname.php # works
 
 }
 
@@ -121,6 +125,7 @@ setupAuthorInfo
 setupNamespace
 setupModel
 setupModelInstance
+setupMigration
 setupComposerInfo
 setupConfigFile
 finishUp
