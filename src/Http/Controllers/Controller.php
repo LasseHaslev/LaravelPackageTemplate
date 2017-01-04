@@ -9,6 +9,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use %namespace%\%model%;
 
+/**
+ * Class %model_plural%Controller
+ * @author %name%
+ */
 class %model_plural%Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

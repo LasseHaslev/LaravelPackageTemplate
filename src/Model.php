@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Image
- * @author Lasse S. Haslev
+ * @author %name%
  */
 class %Model% extends Model {
 

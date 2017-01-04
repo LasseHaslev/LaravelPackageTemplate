@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILES=('./config/my_package.php' './database/migrations/my_package.php' './src/Providers/ServiceProvider.php' './src/Http/Router.php' './README.md' './tests/TestCase.php' './composer.json' './resources/lang/en/models.php' './resources/views/elements/form.blade.php' './resources/views/create.blade.php' './resources/views/edit.blade.php' './resources/views/index.blade.php' './resources/views/show.blade.php')
+FILES=( './src/Model.php' './src/Http/Controllers/Controller.php' './config/my_package.php' './database/migrations/my_package.php' './src/Providers/ServiceProvider.php' './src/Http/Router.php' './README.md' './tests/TestCase.php' './composer.json' './resources/lang/en/models.php' './resources/views/elements/form.blade.php' './resources/views/create.blade.php' './resources/views/edit.blade.php' './resources/views/index.blade.php' './resources/views/show.blade.php')
 
 confirm () {
     # call with a prompt string or use a default
