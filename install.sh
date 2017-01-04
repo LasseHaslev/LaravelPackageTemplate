@@ -130,8 +130,8 @@ setupAuthorInfo
 setupNamespace
 setupModel
 setupModelInstance
-setupMigration
 setupComposerInfo
 setupConfigFile
+setupMigration
 changeFilenames
 finishUp
