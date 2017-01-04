@@ -24,7 +24,7 @@ class %model_plural%Controller extends BaseController
     public function index()
     {
         $categories = %model%::all();
-        return view( 'visit_categories::index' )
+        return view( '%packagename%::index' )
             ->with( compact( 'categories' ) );
     }
 
@@ -35,7 +35,7 @@ class %model_plural%Controller extends BaseController
      */
     public function create()
     {
-        return view( 'visit_categories::create' );
+        return view( '%packagename%::create' );
     }
 
     /**
@@ -59,7 +59,7 @@ class %model_plural%Controller extends BaseController
      */
     public function show( %model% $%instance% )
     {
-        return view( 'visit_categories::show' )
+        return view( '%packagename%::show' )
             ->with( compact( 'category' ) );
     }
 
@@ -71,7 +71,7 @@ class %model_plural%Controller extends BaseController
      */
     public function edit( %model% $%instance% )
     {
-        return view( 'visit_categories::edit' )
+        return view( '%packagename%::edit' )
             ->with( compact( 'category' ) );
     }
 
