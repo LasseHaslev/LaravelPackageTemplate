@@ -120,6 +120,11 @@ function finishUp {
     echo 'All done! Happy coding!'
 }
 
+function changeFilenames {
+    mv ./src/Model.php ./src/$model.php # works
+    mv ./src/Http/Controllers/Controller.php ./src/./src/Http/Controllers/$model_pluralController.php # works
+}
+
 # Steps
 setupAuthorInfo
 setupNamespace
@@ -128,4 +133,5 @@ setupModelInstance
 setupMigration
 setupComposerInfo
 setupConfigFile
+changeFilenames
 finishUp
