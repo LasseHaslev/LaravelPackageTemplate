@@ -23,9 +23,9 @@ class %model_plural%Controller extends BaseController
      */
     public function index()
     {
-        $categories = %model%::all();
+        $%instance_plural% = %model%::all();
         return view( '%packagename%::index' )
-            ->with( compact( 'categories' ) );
+            ->with( compact( '%instance_plural%' ) );
     }
 
     /**
@@ -60,7 +60,7 @@ class %model_plural%Controller extends BaseController
     public function show( %model% $%instance% )
     {
         return view( '%packagename%::show' )
-            ->with( compact( 'category' ) );
+            ->with( compact( '%instance%' ) );
     }
 
     /**
@@ -72,7 +72,7 @@ class %model_plural%Controller extends BaseController
     public function edit( %model% $%instance% )
     {
         return view( '%packagename%::edit' )
-            ->with( compact( 'category' ) );
+            ->with( compact( '%instance%' ) );
     }
 
     /**

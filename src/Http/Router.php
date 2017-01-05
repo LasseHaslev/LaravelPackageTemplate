@@ -26,13 +26,13 @@ class Router extends PackageRouter
             ->name( '%packagename%.%instance_plural%.create' );
         Route::post( '%instance_plural%/store', '\\' .%model_plural%Controller::class . '@store' )
             ->name( '%packagename%.%instance_plural%.store' );
-        Route::get( '%instance_plural%/{category}', '\\' .%model_plural%Controller::class . '@show' )
+        Route::get( '%instance_plural%/{%instance%}', '\\' .%model_plural%Controller::class . '@show' )
             ->name( '%packagename%.%instance_plural%.show' );
-        Route::get( '%instance_plural%/{category}/edit', '\\' .%model_plural%Controller::class . '@edit' )
+        Route::get( '%instance_plural%/{%instance%}/edit', '\\' .%model_plural%Controller::class . '@edit' )
             ->name( '%packagename%.%instance_plural%.edit' );
-        Route::put( '%instance_plural%/{category}', '\\' .%model_plural%Controller::class . '@update' )
+        Route::put( '%instance_plural%/{%instance%}', '\\' .%model_plural%Controller::class . '@update' )
             ->name( '%packagename%.%instance_plural%.update' );
-        Route::delete( '%instance_plural%/{category}', '\\' .%model_plural%Controller::class . '@destroy' )
+        Route::delete( '%instance_plural%/{%instance%}', '\\' .%model_plural%Controller::class . '@destroy' )
             ->name( '%packagename%.%instance_plural%.destroy' );
     }
 
